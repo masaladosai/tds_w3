@@ -2,7 +2,7 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '5 10 * * *'   # Runs daily at 10:05 UTC (specific minute + hour)
+    - cron: '5 10 * * *'
   workflow_dispatch:
 
 jobs:
@@ -14,13 +14,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 24f1002341@ds.study.iitm.ac.in
+        run: echo "Running daily job"
+
+      - name: Create commit
         run: |
           echo "Last run: $(date)" >> log.txt
-          
-      - name: Commit changes
-        run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add log.txt
-          git commit -m "Daily auto commit" || echo "No changes to commit"
+          git commit -m "Daily auto commit" || echo "No changes"
           git push
