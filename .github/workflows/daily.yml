@@ -1,4 +1,4 @@
-name: 24f1002341@ds.study.iitm.ac.in Daily Commit
+name:  Daily Commit
 
 permissions:
   contents: write
@@ -13,11 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: 24f1002341@ds.study.iitm.ac.in
-        run: echo "Running daily job"
+        uses: actions/checkout@v4
 
       - name: Create commit
         run: |
